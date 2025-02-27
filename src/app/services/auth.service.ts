@@ -22,4 +22,9 @@ export class AuthService {
   isLoggedIn(): boolean {
     return !!this.getToken('authToken');
   }
+
+  logout() {
+    this.removeToken('authToken');
+    this.removeToken('userId');
+  }
 }
