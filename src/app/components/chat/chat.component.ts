@@ -70,11 +70,9 @@ export class ChatComponent implements OnDestroy {
       return;
     }
 
-    this.websocketService.sendMessage(this.newMessage).subscribe({
-      next: () => {
-        this.newMessage = '';
-      }
-    });
+    //sem função next somente limpar o campo
+    this.websocketService.sendMessage(this.newMessage);
+    this.newMessage = '';
   }
 
   ngOnDestroy() {
