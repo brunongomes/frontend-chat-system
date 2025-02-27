@@ -1,17 +1,88 @@
 .container {
-    max-width: 400px;
-    margin: 50px auto;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+
+@media (max-width: 480px) {
+  .container {
+      width: 90%;
+      margin: 20px auto;
+      padding: 15px;
   }
-  
-  .form-group {
-    margin-bottom: 15px;
-  }
-  
-  .error {
-    color: red;
-    font-size: 0.9em;
-  }
-  
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 500;
+  color: #333;
+}
+
+.form-group input {
+  width: 95%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #4a90e2;
+  box-shadow: 0 0 5px rgba(74, 144, 226, 0.2);
+}
+
+.error {
+  color: #e74c3c;
+  font-size: 0.9em;
+  padding: 5px;
+  background: #f8d7da;
+  border-radius: 4px;
+  margin-top: 5px;
+}
+
+.btn {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin: 5px 0;
+}
+
+.btn:first-child {
+  background: linear-gradient(135deg, #4a90e2, #357abd);
+  color: white;
+}
+
+.btn:first-child:hover {
+  background: linear-gradient(135deg, #357abd, #2d6a9c);
+  transform: translateY(-1px);
+}
+
+.btn:last-child {
+  background: #f1f1f1;
+  color: #333;
+  border: 1px solid #ddd;
+}
+
+.btn:last-child:hover {
+  background: #e8e8e8;
+}
+
+.container h2 {
+  color: #4a90e2;
+  margin-bottom: 20px;
+}
