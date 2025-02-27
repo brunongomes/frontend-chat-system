@@ -10,7 +10,7 @@
     [class.other-message]="!isCurrentUser(message.user)"
     class="message">
       <div class="message-header">
-        <span class="user"> message.user </span>
+        <span class="user">{{ isCurrentUser(message.user) ? 'Você' : 'Outro usuário' }}</span>
         <span class="timestamp">{{ message.timestamp | date:'HH:mm' }}</span>
       </div>
       <div class="message-content">{{ message.message }}</div>
