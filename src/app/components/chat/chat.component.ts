@@ -4,6 +4,7 @@ import { Subscription } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-chat',
@@ -22,7 +23,8 @@ export class ChatComponent {
 
   constructor(
     private websocketService: WebsocketService,
-    private router: Router
+    private router: Router,
+    private authService: AuthService
   ) {
     this.websocketService.connect().subscribe((connected: any) => {
       if (connected) {
@@ -45,5 +47,11 @@ export class ChatComponent {
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
+  }
+
+  logout() {
+    this.authService.removeToken('authToken');
+    this.authService.removeToken('userId');
+    this.router.navigate(['/login']);
   }
 }
