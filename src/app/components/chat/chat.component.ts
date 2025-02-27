@@ -82,4 +82,8 @@ export class ChatComponent implements OnDestroy {
     this.authService.logout();
     this.router.navigate(['/login']);
   }
+
+  isCurrentUser(userId: string): boolean {
+    return userId === this.authService.getToken('userId');
+  }
 }

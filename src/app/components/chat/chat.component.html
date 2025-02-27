@@ -5,9 +5,12 @@
   </div>
 
   <div class="messages-container">
-    <div *ngFor="let message of messages; trackBy: trackMessage" class="message">
+    <div *ngFor="let message of messages; trackBy: trackMessage"
+    [class.user-message]="isCurrentUser(message.user)"
+    [class.other-message]="!isCurrentUser(message.user)"
+    class="message">
       <div class="message-header">
-        <span class="user">Você</span>
+        <span class="user"> message.user </span>
         <span class="timestamp">{{ message.timestamp | date:'HH:mm' }}</span>
       </div>
       <div class="message-content">{{ message.message }}</div>

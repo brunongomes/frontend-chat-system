@@ -41,6 +41,7 @@
 }
 
 .message {
+  max-width: 50%;
   background: white;
   padding: 15px;
   margin: 10px 0;
@@ -106,4 +107,39 @@ button:hover {
   .messages-container {
     height: 50vh;
   }
+}
+
+.user-message {
+  margin-left: auto;
+  background: #e8f4f8;
+  border-left: 4px solid #3498db;
+}
+
+.other-message {
+  margin-right: auto;
+  background: #bbffd6;
+  border-right: 4px solid #2ecc71;
+}
+
+.user-message .message-header {
+  justify-content: flex-start;
+}
+
+.other-message .message-header {
+  justify-content: flex-start;
+}
+
+.user-message .user {
+  color: #3498db;
+}
+
+.other-message .user {
+  color: #2ecc71;
+}
+
+.timestamp {
+  color: #050505;
+  font-size: 0.8em;
+  text-align: right;
+  margin-left: auto; 
 }
