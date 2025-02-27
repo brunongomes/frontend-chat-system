@@ -7,8 +7,24 @@ import { loginGuard } from './guards/login.guard';
 import { registerGuard } from './guards/register.guard';
 
 export const routes: Routes = [
-    { path: 'login', component: LoginComponent, canActivate: [loginGuard] },
-    { path: 'register', component: RegisterComponent, canActivate: [registerGuard] },
-    { path: 'chat', component: ChatComponent, canActivate: [authGuard] },
-    { path: '', redirectTo: '/login', pathMatch: 'full' }
+    { 
+        path: 'login',
+        component: LoginComponent,
+        canActivate: [loginGuard],
+    },
+    { 
+        path: 'register',
+        component: RegisterComponent,
+        canActivate: [registerGuard]
+    },
+    { 
+        path: 'chat',
+        component: ChatComponent,
+        canActivate: [authGuard]
+    },
+    { 
+        path: '',
+        redirectTo: '/login',
+        pathMatch: 'full'
+    }
 ];
