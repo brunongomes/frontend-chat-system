@@ -1,27 +1,91 @@
-# FrontendChatSystem
+# Chat Frontend
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.2.
+Aplicação Angular para sistema de mensagens em tempo real com autenticação e design responsivo.
 
-## Development server
+---
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## 📝 Sobre  
+Interface de usuário para chat, usando Angular com TypeScript. Inclui autenticação, envio de mensagens e layout adaptável.
 
-## Code scaffolding
+---
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## 🚀 Features  
+- **Autenticação**: Login/Registro com redirecionamento  
+- **Chat em tempo real**: Envio de mensagens com histórico  
+- **Design responsivo**: Funciona em dispositivos móveis  
+- **Guards de segurança**: Proteção de rotas via Angular Router
+---
 
-## Build
+## 🛠 Setup  
+### Pré-requisitos  
+- Node.js 16+  
+- npm
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Passo a passo  
+1. **Clonar o repositório**  
+   ```
+   git clone https://github.com/brunongomes/frontend-chat-system
+   cd chat-frontend
+   ```
 
-## Running unit tests
+2. **Instalar dependências**  
+   ```
+   npm install
+   ```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+3. **Configurar variáveis de ambiente**  
+   Configure o arquivo `environment.ts` com:  
+   ```
+   const port = 9007;
 
-## Running end-to-end tests
+   export const environment = {
+      production: false,
+      apiUrl: `http://localhost:${port}`,
+      port: port,
+      wsUrl: `ws://localhost:${port}`
+   };
+   ```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+4. **Iniciar o servidor**  
+   ```
+   npm start
+   ```
 
-## Further help
+---
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## 📐 Arquitetura  
+### Estrutura do Projeto  
+```
+src/
+├── app/
+│   ├── components/      # Componentes standalone
+│   ├── guards/          # Guards de segurança
+│   ├── services/        # Serviços de negócios
+│   ├── routing/         # Configuração de rotas
+│   └── app-routing.module.ts # Roteamento principal
+└── assets/              # Recursos estáticos
+```
+
+### Componentes Principais  
+1. **Angular Router**: Navegação e lazy loading  
+2. **Guards**: Proteção de rotas via `CanActivate`  
+3. **Services**: Gerenciamento de estado e comunicação com API    
+4. **CSS**: Estilização responsiva com flexbox/grid  
+
+---
+
+## 🔍 Funcionalidades Principais  
+| Funcionalidade       | Descrição                          |
+|----------------------|------------------------------------|
+| Autenticação         | Login/Registro com redirecionamento |
+| Chat em tempo real   | Envio de mensagens com histórico   |
+| Design responsivo    | Layout adaptável para todos os tamanhos |
+| Lazy Loading         | Carregamento sob demanda de módulos |
+| Guards de segurança  | Proteção de rotas via Angular Router |
+
+---
+
+## 📜 License  
+Distribuído sob a licença **MIT**. Veja o arquivo `LICENSE` para mais detalhes.
+
+---
