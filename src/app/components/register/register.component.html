@@ -1,0 +1,22 @@
+<div class="container">
+    <h2>Cadastro</h2>
+    <form (ngSubmit)="register()">
+      <div class="form-group">
+        <label>Nome:</label>
+        <input name="name" [(ngModel)]="name" type="text">
+      </div>
+      <div class="form-group">
+        <label>Email:</label>
+        <input name="email" [(ngModel)]="email" type="email">
+      </div>
+      <div class="form-group">
+        <label>Senha:</label>
+        <input name="password" [(ngModel)]="password" type="password">
+      </div>
+      <button type="submit" class="btn">Cadastrar</button>
+      <button type="button" class="btn" (click)="goBack()">Voltar</button>
+      <div *ngIf="validationErrors" class="error">
+        {{ validationErrors }}
+      </div>
+    </form>
+</div>
