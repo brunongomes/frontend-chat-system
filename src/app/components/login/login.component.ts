@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators, ReactiveFormsModule } from '@angula
 import { LoginService } from '../../services/login.service';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -24,7 +25,8 @@ export class LoginComponent {
 
   constructor(
     private loginService: LoginService,
-    private router: Router
+    private router: Router,
+    private authService: AuthService
   ) {}
 
   login() {
@@ -33,8 +35,8 @@ export class LoginComponent {
       this.loginService.login({ username, password })
       .subscribe({
         next: (response: any) => {
-          localStorage.setItem('token', response.token);
-          localStorage.setItem('userId', response.userId);
+          this.authService.setToken(response.token, 'authToken');
+          this.authService.setToken(response.userId, 'userId');
           this.router.navigate(['/chat']);
         },
         error: (err: { error: { message: string; error: string; }; }) => {
