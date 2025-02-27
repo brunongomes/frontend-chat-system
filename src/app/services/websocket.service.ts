@@ -2,16 +2,17 @@ import { Injectable } from '@angular/core';
 import { io } from 'socket.io-client';
 import { HttpClient } from '@angular/common/http';
 import { Observable, tap, catchError } from 'rxjs';
+import { environment } from '../../environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class WebsocketService {
   private socket!: any; 
-  private apiUrl = 'http://localhost:9007/api/chat';
+  private apiUrl = `${environment.apiUrl}/api/chat`;
 
   constructor(private http: HttpClient) {
-    this.socket = io('ws://localhost:9007', {
+    this.socket = io(environment.wsUrl, {
       path: '/socket.io',
       auth: {
         token: localStorage.getItem('token')
