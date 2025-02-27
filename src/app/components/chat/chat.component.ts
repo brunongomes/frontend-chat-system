@@ -31,6 +31,10 @@ export class ChatComponent implements OnDestroy {
     this.initWebSocket();
   }
 
+  ngOnInit() {
+    this.loadMessages();
+  }
+
   private initWebSocket() {
     this.websocketService.connect().subscribe({
       next: (value: unknown) => {
@@ -80,6 +84,7 @@ export class ChatComponent implements OnDestroy {
 
   logout() {
     this.authService.logout();
+    this.websocketService.socket?.disconnect();
     this.router.navigate(['/login']);
   }
 

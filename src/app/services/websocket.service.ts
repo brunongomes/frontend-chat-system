@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { io } from 'socket.io-client';
 import { HttpClient } from '@angular/common/http';
-import { Observable, tap, catchError, map } from 'rxjs';
+import { Observable, tap, catchError, map, of } from 'rxjs';
 import { environment } from '../../environment';
 
 @Injectable({
@@ -57,14 +57,18 @@ export class WebsocketService {
     );
   }
 
-  sendMessage(message: string) {
+  sendMessage(message: string): Observable<void> {
     const userId = localStorage.getItem('userId');
-    if (!userId) return;
+    if (!userId) return of();
     
-    return this.socket.emit('chat message', {
-      userId,
-      message,
-      timestamp: new Date().toISOString()
-    });
+    return of().pipe(
+      tap(() => {
+        this.socket.emit('chat message', {
+          userId,
+          message,
+          timestamp: new Date().toISOString()
+        });
+      })
+    );
   }
 }
