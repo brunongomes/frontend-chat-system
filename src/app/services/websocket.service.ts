@@ -8,7 +8,7 @@ import { Observable, tap, catchError } from 'rxjs';
 })
 export class WebsocketService {
   private socket!: any; 
-  private apiUrl = 'http://localhost:9007/chat';
+  private apiUrl = 'http://localhost:9007/api/chat';
 
   constructor(private http: HttpClient) {
     this.socket = io('ws://localhost:9007', {

@@ -6,11 +6,13 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class RegisterService {
-  private apiUrl = 'http://localhost:9007/auth/register';
+  private apiUrl = 'http://localhost:9007/api/auth/register';
 
   constructor(private http: HttpClient) {}
 
   register(user: { username: string, email: string, password: string }): Observable<void> {
+    console.log(this.apiUrl)
+    console.log(user);
     return this.http.post<void>(this.apiUrl, user);
   }
 }
