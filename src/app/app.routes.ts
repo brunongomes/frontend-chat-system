@@ -9,18 +9,18 @@ import { registerGuard } from './guards/register.guard';
 export const routes: Routes = [
     { 
         path: 'login',
-        component: LoginComponent,
         canActivate: [loginGuard],
+        loadComponent: () => import('./components/login/login.component').then(m => m.LoginComponent)
     },
     { 
         path: 'register',
-        component: RegisterComponent,
-        canActivate: [registerGuard]
+        canActivate: [registerGuard],
+        loadComponent: () => import('./components/register/register.component').then(m => m.RegisterComponent)
     },
     { 
         path: 'chat',
-        component: ChatComponent,
-        canActivate: [authGuard]
+        canActivate: [authGuard],
+        loadComponent: () => import('./components/chat/chat.component').then(m => m.ChatComponent)
     },
     { 
         path: '',
